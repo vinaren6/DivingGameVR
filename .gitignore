@@ -3,7 +3,10 @@
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
 Assets/AssetStoreTools*
+.idea/
 
 # Visual Studio cache directory
 .vs/
@@ -35,3 +38,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+.vsconfig
+UserSettings/EditorUserSettings.asset

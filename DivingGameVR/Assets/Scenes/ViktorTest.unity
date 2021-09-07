@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 38131374}
   - component: {fileID: 38131373}
   - component: {fileID: 38131372}
-  - component: {fileID: 38131375}
   - component: {fileID: 38131376}
+  - component: {fileID: 38131375}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38131370}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4952d80366f20f441b1a76ad927225da, type: 3}
   m_Name: 
@@ -242,7 +242,7 @@ MonoBehaviour:
   _mat: {fileID: 2100000, guid: be57c8842744b634aa2bb8507708bf11, type: 2}
   _pixelOffset: 0.017
   _noiseScale: 1
-  _noiseFrequency: 1
+  _noiseFrequency: 1.8
   _noiseSpeed: 0.5
 --- !u!114 &38131376
 MonoBehaviour:
@@ -257,6 +257,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mat: {fileID: 2100000, guid: 172a34e19d5ad2c4bb47057cb4145f6c, type: 2}
+  _fogColor: {r: 0.6556604, g: 1, b: 0.9182192, a: 0}
+  _depthStart: 23.21
+  _depthDistance: 177.93
 --- !u!1001 &556521476
 PrefabInstance:
   m_ObjectHideFlags: 0

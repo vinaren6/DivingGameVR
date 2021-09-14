@@ -15,7 +15,7 @@ int numBoids;
 float viewRadius;
 float avoidRadius;
 
-[numthreads(threadGroupSize,3,1)]
+[numthreads(threadGroupSize,2,1)]
 void CSMain (uint3 obj : SV_DispatchThreadID)
 {
     for (int i = 0; i < numBoids; i++) {
@@ -29,7 +29,7 @@ void CSMain (uint3 obj : SV_DispatchThreadID)
                 boids[obj.x].numFlockMates += 1;
                 boids[obj.x].flockCource += boidB.direction;
                 boids[obj.x].flockCentre += boidB.position;
-
+  
                 if (sqrDst < avoidRadius * avoidRadius) {
                     boids[obj.x].seperation -= offset / sqrDst;
                 }

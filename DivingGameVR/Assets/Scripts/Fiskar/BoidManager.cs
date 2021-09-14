@@ -20,8 +20,20 @@ public class BoidManager : MonoBehaviour
     public float spawnRadius = 10;
     public float spawnCount = 200;
 
+    private static BoidManager _instance;
+
+    public static BoidManager Instance { get { return _instance; } }
+
     private void Awake()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
         fishTarget = FindObjectOfType<FishTarget>();
         boids = new Boid[(int)spawnCount];
 
@@ -31,6 +43,7 @@ public class BoidManager : MonoBehaviour
             Boid boid = Instantiate(prefab);
             boid.transform.position = poos;
             boid.transform.forward = Random.insideUnitSphere;
+            boid.transform.SetParent(transform);
 
             boids[i] = boid;
         }

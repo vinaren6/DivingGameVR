@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcec8049bb981904f9a5f54f9085c9ae, type: 3}
   m_Name: MoreGrouping 1
   m_EditorClassIdentifier: 
-  minSpeed: 2.14
-  maxSpeed: 6.81
+  minSpeed: 1.54
+  maxSpeed: 2.89
   perceptionRadius: 2.5
   avoidanceRadius: 1
   rotationSpeed: 7.28

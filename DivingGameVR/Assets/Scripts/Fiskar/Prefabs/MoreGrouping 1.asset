@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcec8049bb981904f9a5f54f9085c9ae, type: 3}
+  m_Name: MoreGrouping 1
+  m_EditorClassIdentifier: 
+  minSpeed: 2.14
+  maxSpeed: 6.81
+  perceptionRadius: 2.5
+  avoidanceRadius: 1
+  rotationSpeed: 7.28
+  alignWeight: 7.4
+  cohesionWeight: 1
+  seperateWeight: 2.3
+  targetWeight: 0.3
+  boundsRadius: 2.85
+  collisionAvoidDist: 5
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 16
+  avoidCollisionWeight: 20

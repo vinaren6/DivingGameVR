@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public Material deadFishMat;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Fish"))
@@ -21,6 +22,7 @@ public class Bullet : MonoBehaviour
 
                 Destroy(boid);
                 boid.gameObject.AddComponent<Rigidbody>();
+                collision.gameObject.GetComponent<Renderer>().material = deadFishMat;
             }
         }
     }

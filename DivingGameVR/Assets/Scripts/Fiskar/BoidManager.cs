@@ -16,7 +16,7 @@ public class BoidManager : MonoBehaviour
     public ComputeShader computeShader;
     Boid[] boids;
 
-    public Boid prefab;
+    public Boid[] prefabs;
     public float spawnRadius = 10;
     public float spawnCount = 200;
 
@@ -40,7 +40,7 @@ public class BoidManager : MonoBehaviour
         for (int i = 0; i < spawnCount; i++)
         {
             Vector3 poos = transform.position + Random.insideUnitSphere * spawnRadius;
-            Boid boid = Instantiate(prefab);
+            Boid boid = Instantiate(prefabs[(int)Random.Range(0, prefabs.Length)]);
             boid.transform.position = poos;
             boid.transform.forward = Random.insideUnitSphere;
             boid.transform.SetParent(transform);

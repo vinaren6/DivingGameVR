@@ -16,9 +16,12 @@ public class BoidManager : MonoBehaviour
     public ComputeShader computeShader;
     Boid[] boids;
 
-    public Boid[] prefabs;
+    public Boid[] fishesPref;
+    public Boid sharkPref;
+    [Range(0, 1f)]
+    public float percentageOfSharks;
     public float spawnRadius = 10;
-    public float spawnCount = 200;
+   public int spawnCount = 200;
 
     private static BoidManager _instance;
 
@@ -37,10 +40,24 @@ public class BoidManager : MonoBehaviour
         fishTarget = FindObjectOfType<FishTarget>();
         boids = new Boid[(int)spawnCount];
 
+        int totalSharks = Mathf.FloorToInt((float)spawnCount * percentageOfSharks);
+        spawnCount -= totalSharks;
+
         for (int i = 0; i < spawnCount; i++)
         {
             Vector3 poos = transform.position + Random.insideUnitSphere * spawnRadius;
-            Boid boid = Instantiate(prefabs[(int)Random.Range(0, prefabs.Length)]);
+            Boid boid = Instantiate(fishesPref[(int)Random.Range(0, fishesPref.Length)]);
+            boid.transform.position = poos;
+            boid.transform.forward = Random.insideUnitSphere;
+            boid.transform.SetParent(transform);
+
+            boids[i] = boid;
+        }
+
+        for (int i = spawnCount; i < spawnCount + totalSharks; i++)
+        {
+            Vector3 poos = transform.position + Random.insideUnitSphere * spawnRadius;
+            Boid boid = Instantiate(sharkPref);
             boid.transform.position = poos;
             boid.transform.forward = Random.insideUnitSphere;
             boid.transform.SetParent(transform);
@@ -59,7 +76,7 @@ public class BoidManager : MonoBehaviour
             foreach (Boid boid in boids)
             {
                 i++;
-                boid.SpawnFish(boidSettings, fishTarget.targets[i % fishTarget.amountOfTargets]);
+                boid.SetUpFish(boidSettings, fishTarget.targets[i % fishTarget.amountOfTargets]);
             }
         }
 
@@ -67,7 +84,7 @@ public class BoidManager : MonoBehaviour
         {
             foreach (Boid boid in boids)
             {
-                boid.SpawnFish(boidSettings, null);
+                boid.SetUpFish(boidSettings, null);
             }
         }
     }

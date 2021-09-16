@@ -30,7 +30,7 @@ public class Boid : MonoBehaviour
         savedTransform = gameObject.transform;
     }
 
-    public void SpawnFish(BoidSettings settings, Transform target)
+    public void SetUpFish(BoidSettings settings, Transform target)
     {
         this.target = target;
         this.boidSettings = settings;

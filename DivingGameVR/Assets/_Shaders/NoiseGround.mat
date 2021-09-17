@@ -31,9 +31,9 @@ Material:
     - _Glossiness: 0.27
     - _Metallic: 0
     - _NoiseFrequency: -0.23
-    - _NoiseScale: 2.11
-    - _Tess: 4
+    - _NoiseScale: 1.87
+    - _Tess: 1.12
     m_Colors:
-    - _Color: {r: 0.22841758, g: 0.23987217, b: 0.2735849, a: 1}
+    - _Color: {r: 0.2264151, g: 0.15454912, b: 0, a: 1}
     - _Noiseoffset: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

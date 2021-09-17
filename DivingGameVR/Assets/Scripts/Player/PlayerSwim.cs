@@ -11,7 +11,7 @@ public class PlayerSwim : MonoBehaviour
     [SerializeField] private Transform trackingSpace;
 
     private float triggerPress = 0.9f;
-    private float leftTrigger, rightTrigger;
+    public float leftTrigger, rightTrigger;
     [SerializeField] private ControllerVelocity rightVelocity;
     [SerializeField] private ControllerVelocity leftVelocity;
 
@@ -65,7 +65,7 @@ public class PlayerSwim : MonoBehaviour
     private void AddSwimming(Vector3 localVelocity)
     {
         Vector3 worldSpaceVelocity = trackingSpace.TransformDirection(localVelocity);
-        rigidbody.AddForce(worldSpaceVelocity * swimForce, ForceMode.Impulse);
+        rigidbody.AddForce(worldSpaceVelocity * swimForce, ForceMode.Force);
         currentDirection = worldSpaceVelocity.normalized;
     }
 }

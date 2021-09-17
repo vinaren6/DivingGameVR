@@ -1,4 +1,4 @@
-Shader "Custom/NoiseGround"
+Shader "NoiseGround"
 {
     Properties
     {
@@ -50,7 +50,7 @@ Shader "Custom/NoiseGround"
         {
             return _Tess;
         }
-        void vert(inout appdata v)
+        void vert(inout appdata_full v)
         {
             float3 v0 = v.vertex.xyz;
             float3 bitangent = cross(v.normal, v.tangent.xyz);

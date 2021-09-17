@@ -10,6 +10,9 @@ public class ControllerManager : MonoBehaviour
     [SerializeField] private InputDeviceCharacteristics rightCharacteristics;
     [SerializeField] private InputDeviceCharacteristics leftCharacteristics;
 
+    public float rightTrigger;
+    public float leftTrigger;
+
     private void Awake()
     {
         rightCharacteristics = InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.HeldInHand |
@@ -59,7 +62,13 @@ public class ControllerManager : MonoBehaviour
         if (!rightController.isValid || !leftController.isValid)
         {
             Init();
-            return;
+        }
+        else
+        {
+            rightController.TryGetFeatureValue(CommonUsages.trigger, out float rTrigger);
+            rightTrigger = rTrigger;
+            leftController.TryGetFeatureValue(CommonUsages.trigger, out float lTrigger);
+            leftTrigger = lTrigger;
         }
     }
 }

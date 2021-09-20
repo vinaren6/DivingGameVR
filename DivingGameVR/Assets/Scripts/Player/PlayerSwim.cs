@@ -32,40 +32,32 @@ public class PlayerSwim : MonoBehaviour
 
     private void FixedUpdate()
     {
-        currentWaitTime += Time.deltaTime;
-        if (leftTrigger > triggerPress || rightTrigger > triggerPress)
+        if (rightTrigger > triggerPress && leftTrigger > triggerPress)
         {
-            Vector3 localVelocity = Vector3.zero;
-            if (leftTrigger > triggerPress && rightTrigger > triggerPress) //Left AND Right
-                localVelocity = rightVelocity.Velocity + leftVelocity.Velocity;
-            else if (leftTrigger > triggerPress) //Left only
-                localVelocity = leftVelocity.Velocity;
-            else if (rightTrigger > triggerPress) //Right only
-                localVelocity = rightVelocity.Velocity;
-
+            Vector3 rightHandDirection = leftVelocity.Velocity;
+            Vector3 leftHandDirection = rightVelocity.Velocity;
+            Vector3 localVelocity = leftHandDirection + rightHandDirection;
             localVelocity *= -1f;
 
-            if (localVelocity.sqrMagnitude > deadZone * deadZone && currentWaitTime > interval)
-            {
-                AddSwimming(localVelocity);
-                currentWaitTime = 0f;
-            }
-
-            if (rigidbody.velocity.sqrMagnitude > 0.01f && currentDirection != Vector3.zero)
-            {
-                rigidbody.AddForce(-rigidbody.velocity * resistanceForce, ForceMode.Acceleration);
-            }
-            else
-            {
-                currentDirection = Vector3.zero;
-            }
+            if (localVelocity.sqrMagnitude > deadZone * deadZone)
+                AddSwimmingForce(localVelocity);
         }
+
+        ApplyReststanceForce();
     }
 
-    private void AddSwimming(Vector3 localVelocity)
+    private void ApplyReststanceForce()
+    {
+        if (rigidbody.velocity.sqrMagnitude > 0.01f && currentDirection != Vector3.zero)
+            rigidbody.AddForce(-rigidbody.velocity * resistanceForce, ForceMode.Acceleration);
+        else
+            currentDirection = Vector3.zero;
+    }
+
+    private void AddSwimmingForce(Vector3 localVelocity)
     {
         Vector3 worldSpaceVelocity = trackingSpace.TransformDirection(localVelocity);
-        rigidbody.AddForce(worldSpaceVelocity * swimForce, ForceMode.Force);
+        rigidbody.AddForce(worldSpaceVelocity * swimForce, ForceMode.Acceleration);
         currentDirection = worldSpaceVelocity.normalized;
     }
 }

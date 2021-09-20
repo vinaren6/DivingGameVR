@@ -954,6 +954,7 @@ GameObject:
   - component: {fileID: 6524717744485737630}
   - component: {fileID: 6524717744478505800}
   - component: {fileID: 5452223949561246370}
+  - component: {fileID: 1448975716352435286}
   m_Layer: 0
   m_Name: Right Hand Model
   m_TagString: Untagged
@@ -1012,3 +1013,18 @@ MonoBehaviour:
   rightController: 1
   handAnimator: {fileID: 0}
   interactionCenter: {fileID: 456932534846750048}
+--- !u!114 &1448975716352435286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6524717744485906686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee59053760d8da4ba4bf47c1dc256d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupLayer:
+    serializedVersion: 2
+    m_Bits: 512

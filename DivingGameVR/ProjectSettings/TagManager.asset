@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fish
+  - HandCollider
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Bullet
   - Fish
   - Floor
-  - 
+  - PickUp
   - 
   - 
   - 

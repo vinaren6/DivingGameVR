@@ -11,7 +11,7 @@ public class PlayerSwim : MonoBehaviour
     [SerializeField] private Transform trackingSpace;
 
     private float triggerPress = 0.9f;
-    private float leftTrigger, rightTrigger;
+    public float leftTrigger, rightTrigger;
     [SerializeField] private ControllerVelocity rightVelocity;
     [SerializeField] private ControllerVelocity leftVelocity;
 

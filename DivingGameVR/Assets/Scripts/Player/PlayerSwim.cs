@@ -6,6 +6,7 @@ public class PlayerSwim : MonoBehaviour
 {
     [SerializeField] private float swimForce;
     [SerializeField] private float resistanceForce;
+    [SerializeField] private float resistanceForceAngular;
     [SerializeField] private float deadZone;
     [SerializeField] private float interval;
     [SerializeField] private Transform trackingSpace;
@@ -52,6 +53,11 @@ public class PlayerSwim : MonoBehaviour
             rigidbody.AddForce(-rigidbody.velocity * resistanceForce, ForceMode.Acceleration);
         else
             currentDirection = Vector3.zero;
+        
+        if (rigidbody.angularVelocity.sqrMagnitude > 0.01f)
+            rigidbody.AddTorque(new Vector3(0,rigidbody.angularVelocity.y, 0) * resistanceForce, ForceMode.Acceleration);
+        else
+            currentDirection = Vector3.zero;
     }
 
     private void AddSwimmingForce(Vector3 localVelocity)
@@ -60,7 +66,7 @@ public class PlayerSwim : MonoBehaviour
         rigidbody.AddForce(worldSpaceVelocity * swimForce, ForceMode.Acceleration);
         currentDirection = worldSpaceVelocity.normalized;
 
-        rigidbody.angularVelocity = new Vector3(0, worldSpaceVelocity.x, 0);
+        rigidbody.angularVelocity = new Vector3(0,rigidbody.angularVelocity.y + worldSpaceVelocity.x, 0);
         //transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
     }
 }

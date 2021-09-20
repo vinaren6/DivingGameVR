@@ -59,5 +59,8 @@ public class PlayerSwim : MonoBehaviour
         Vector3 worldSpaceVelocity = trackingSpace.TransformDirection(localVelocity);
         rigidbody.AddForce(worldSpaceVelocity * swimForce, ForceMode.Acceleration);
         currentDirection = worldSpaceVelocity.normalized;
+
+        rigidbody.angularVelocity = new Vector3(0, worldSpaceVelocity.x, 0);
+        //transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
     }
 }

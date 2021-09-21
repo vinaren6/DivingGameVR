@@ -24,10 +24,11 @@ Shader "FishAnimation" {
 		_HeadLimit("HeadLimit", Range(-2,  2)) = 0.05
 	}
 		SubShader{
-		Tags{ "RenderType" = "Opaque" }
+		Tags{ "RenderType" = "Opaque" }		
 		Cull off
 
-		Pass{
+		Pass{	
+			Lighting On
 
 		CGPROGRAM
 	#pragma vertex vert
@@ -99,6 +100,7 @@ Shader "FishAnimation" {
 		}
 
 
+		UNITY_APPLY_FOG(v.fogCoord, col);
 		o.pos = UnityObjectToClipPos(v.vertex);
 		o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 		return o;

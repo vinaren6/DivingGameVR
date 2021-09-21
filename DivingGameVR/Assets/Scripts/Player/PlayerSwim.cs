@@ -37,10 +37,35 @@ public class PlayerSwim : MonoBehaviour
             Vector3 rightHandDirection = leftVelocity.Velocity;
             Vector3 leftHandDirection = rightVelocity.Velocity;
             Vector3 localVelocity = leftHandDirection + rightHandDirection;
-            localVelocity *= -1f;
+            localVelocity *= -1f;         
 
             if (localVelocity.sqrMagnitude > deadZone * deadZone)
-                AddSwimmingForce(localVelocity);
+                AddSwimmingForce(localVelocity.normalized);
+
+            rigidbody.angularVelocity = Vector3.zero;
+        }
+        else
+        {
+            if(rightTrigger > triggerPress)
+            {
+                Vector3 rightHandDirection = rightVelocity.Velocity;
+                rightHandDirection *= -1;
+
+                if (rightHandDirection.sqrMagnitude > deadZone * deadZone)
+                    AddRotateForce(rightHandDirection.normalized);
+            }
+            else if(leftTrigger > triggerPress)
+            {
+                Vector3 leftHandDirection = leftVelocity.Velocity;
+                leftHandDirection *= -1;
+
+                if (leftHandDirection.sqrMagnitude > deadZone * deadZone)
+                    AddRotateForce(leftHandDirection.normalized);
+            }
+            else
+            {           
+                rigidbody.angularVelocity = Vector3.zero;
+            }
         }
 
         ApplyReststanceForce();
@@ -59,8 +84,12 @@ public class PlayerSwim : MonoBehaviour
         Vector3 worldSpaceVelocity = trackingSpace.TransformDirection(localVelocity);
         rigidbody.AddForce(worldSpaceVelocity * swimForce, ForceMode.Acceleration);
         currentDirection = worldSpaceVelocity.normalized;
+    }
 
+    private void AddRotateForce(Vector3 localVelocity)
+    {
+        //localVelocity = localVelocity * 0.6f;
+        Vector3 worldSpaceVelocity = trackingSpace.TransformDirection(localVelocity);
         rigidbody.angularVelocity = new Vector3(0, worldSpaceVelocity.x, 0);
-        //transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
     }
 }

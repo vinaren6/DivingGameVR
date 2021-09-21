@@ -53,9 +53,9 @@ public class PlayerSwim : MonoBehaviour
             rigidbody.AddForce(-rigidbody.velocity * resistanceForce, ForceMode.Acceleration);
         else
             currentDirection = Vector3.zero;
-        
+
         if (rigidbody.angularVelocity.sqrMagnitude > 0.01f)
-            rigidbody.AddTorque(new Vector3(0,rigidbody.angularVelocity.y, 0) * resistanceForce, ForceMode.Acceleration);
+            rigidbody.AddTorque(new Vector3(0,rigidbody.angularVelocity.y, 0) * -resistanceForceAngular, ForceMode.Acceleration);
         else
             currentDirection = Vector3.zero;
     }
@@ -63,10 +63,13 @@ public class PlayerSwim : MonoBehaviour
     private void AddSwimmingForce(Vector3 localVelocity)
     {
         Vector3 worldSpaceVelocity = trackingSpace.TransformDirection(localVelocity);
+        rigidbody.angularVelocity = new Vector3(
+            rigidbody.angularVelocity.x,
+            rigidbody.angularVelocity.y + worldSpaceVelocity.x,
+            rigidbody.angularVelocity.z);
         rigidbody.AddForce(worldSpaceVelocity * swimForce, ForceMode.Acceleration);
         currentDirection = worldSpaceVelocity.normalized;
 
-        rigidbody.angularVelocity = new Vector3(0,rigidbody.angularVelocity.y + worldSpaceVelocity.x, 0);
         //transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
     }
 }

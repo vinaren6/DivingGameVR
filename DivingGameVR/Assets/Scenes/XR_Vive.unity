@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swimForce: 0.5
   resistanceForce: 2
-  resistanceForceAngular: 2
+  resistanceForceAngular: 0.2
   deadZone: 1
   interval: 0.5
   trackingSpace: {fileID: 689419794994844590}

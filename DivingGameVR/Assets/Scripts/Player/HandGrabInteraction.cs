@@ -29,9 +29,9 @@ public class HandGrabInteraction : MonoBehaviour
             if (colliders.Length > 0)
             {
                 pickupObject = colliders[0].transform;
+                lockedInHand = !lockedInHand;
             }
 
-            lockedInHand = !lockedInHand;
             Debug.Log(colliders.Length);
         }
     }
@@ -61,7 +61,7 @@ public class HandGrabInteraction : MonoBehaviour
             Debug.Log($"Assigned {gameObject.name} with {targetDevice.name}");
         }
     }
-    
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, pickupDistance);

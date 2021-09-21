@@ -24,7 +24,6 @@ public class ControllerInput : MonoBehaviour
 
     private void Update()
     {
-        /*
         if (!targetDevice.isValid)
         {
             targetDevice = rightController
@@ -34,7 +33,6 @@ public class ControllerInput : MonoBehaviour
         }
 
         UpdateHandAnimation();
-        */
     }
 
     private void UpdateHandAnimation()

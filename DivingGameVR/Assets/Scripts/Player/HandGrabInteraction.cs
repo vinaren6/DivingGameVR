@@ -9,7 +9,7 @@ public class HandGrabInteraction : MonoBehaviour
 
     [SerializeField] private bool rightHand;
     private bool lockedInHand;
-    private float triggerPress = 0.8f;
+    private float triggerPress = 0.6f;
     private float pickupDistance = 0.08f;
     private SphereCollider collider;
 

@@ -5,61 +5,53 @@ using UnityEngine.XR;
 public class HandGrabInteraction : MonoBehaviour
 {
     [SerializeField] private LayerMask pickupLayer;
-    [SerializeField] private InputDevice targetDevice;
     private InputDeviceCharacteristics controllerType;
 
+    [SerializeField] private bool rightHand;
     private bool lockedInHand;
-    private Transform pickupObject;
+    private float triggerPress = 0.8f;
     private float pickupDistance = 0.08f;
     private SphereCollider collider;
+
+    private Transform pickupObject;
+    private Rigidbody pickupRigidbody;
 
     private void Start()
     {
         collider = GetComponent<SphereCollider>();
-        controllerType = InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Right |
-                         InputDeviceCharacteristics.TrackedDevice;
     }
 
     private void FixedUpdate()
     {
-        targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
-        if (triggerValue > 0.8f)
+        //If the correct hand is pressing
+        if (!lockedInHand && GetCorrectHandTriggerValue() > triggerPress)
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, pickupDistance, pickupLayer);
             if (colliders.Length > 0)
             {
                 pickupObject = colliders[0].transform;
-                lockedInHand = !lockedInHand;
+                pickupRigidbody = pickupObject.GetComponent<Rigidbody>();
+
+                pickupRigidbody.isKinematic = true;
+                pickupObject.position = transform.position;
+                pickupObject.SetParent(transform);
+                lockedInHand = true;
             }
-
-            Debug.Log(colliders.Length);
+        }
+        else if (lockedInHand && GetCorrectHandTriggerValue() < triggerPress)
+        {
+            pickupObject.parent = null;
+            pickupRigidbody.isKinematic = false;
+            lockedInHand = false;
         }
     }
 
-    private void Update()
+    private float GetCorrectHandTriggerValue()
     {
-        if (!targetDevice.isValid)
-        {
-            Init();
-            return;
-        }
-
-        if (lockedInHand)
-        {
-            pickupObject.position = transform.position;
-        }
-    }
-
-    private void Init()
-    {
-        List<InputDevice> devices = new List<InputDevice>();
-        InputDevices.GetDevicesWithCharacteristics(controllerType, devices);
-
-        if (devices.Count == 1)
-        {
-            targetDevice = devices[0];
-            Debug.Log($"Assigned {gameObject.name} with {targetDevice.name}");
-        }
+        if (rightHand)
+            return ControllerManager.Instance.rightTrigger;
+        else
+            return ControllerManager.Instance.leftTrigger;
     }
 
     private void OnDrawGizmos()

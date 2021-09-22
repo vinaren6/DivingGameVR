@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41192172981663348b9ba15d3921e619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadMaterial: {fileID: 2100000, guid: df48e2d2678ee80488e67d2d5847afd8, type: 2}
   position: {x: 0, y: 0, z: 0}
   forward: {x: 0, y: 0, z: 0}
   averageFlockCource: {x: 0, y: 0, z: 0}

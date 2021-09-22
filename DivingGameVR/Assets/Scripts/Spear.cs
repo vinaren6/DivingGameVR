@@ -62,7 +62,7 @@ public class Spear : MonoBehaviour
 
             Destroy(boid);
             boid.gameObject.AddComponent<Rigidbody>();
-            fishTarget.GetComponent<Renderer>().material = deadFishMat;
+            fishTarget.GetComponent<Renderer>().material = boid.deadMaterial;
         }
     }
 

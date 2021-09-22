@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Boid : MonoBehaviour
 {
+    public Material deadMaterial;
     BoidSettings boidSettings;
 
     [HideInInspector]

@@ -41,8 +41,6 @@ public class ControllerInput : MonoBehaviour
         if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
         {
             handAnimator.SetFloat(triggerAnim, triggerValue);
-            if (triggerValue >= triggerGrip)
-                Grab();
         }
         else
         {
@@ -57,20 +55,6 @@ public class ControllerInput : MonoBehaviour
         else
         {
             handAnimator.SetFloat(gripAnim, 0);
-        }
-    }
-
-    private void Grab()
-    {
-        //Grab object
-        Collider[] colliders = Physics.OverlapSphere(interactionCenter.position, interactionSize, pickupLayer);
-        Debug.Log(colliders.Length);
-        if (colliders.Length > 0)
-        {
-            interactedObject = colliders[0].transform;
-            interactedObject.GetComponent<Rigidbody>().isKinematic = true;
-            interactedObject.SetParent(interactionCenter);
-            interactedObject.position = interactionCenter.position;
         }
     }
 

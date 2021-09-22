@@ -17,13 +17,13 @@ MonoBehaviour:
   perceptionRadius: 2.5
   avoidanceRadius: 1
   rotationSpeed: 7.28
-  alignWeight: 7.4
-  cohesionWeight: 1
+  alignWeight: 28.6
+  cohesionWeight: 4.93
   seperateWeight: 2.3
   targetWeight: 0.3
   boundsRadius: 2.85
   collisionAvoidDist: 5
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 272
+    m_Bits: 3328
   avoidCollisionWeight: 20

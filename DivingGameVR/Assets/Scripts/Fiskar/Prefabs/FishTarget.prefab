@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 5595118535506847565, guid: 6ba9813da02f7874e8d743458c353471, type: 3}
-  swimLimits: {x: 7, y: 7, z: 7}
-  amountOfTargets: 5
+  swimLimits: {x: 14, y: 14, z: 14}
+  amountOfTargets: 10
   targets: []
   targetsSwapTime: 0

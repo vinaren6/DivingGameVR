@@ -241,6 +241,8 @@ MonoBehaviour:
   spearVelocity: 15.97
   lineStartPos: {fileID: 6567716134096946850}
   endLinePos: {fileID: 6567716134020170564}
+  lineCount: 6
+  height: 0.24
 --- !u!120 &6567716133928107051
 LineRenderer:
   m_ObjectHideFlags: 0

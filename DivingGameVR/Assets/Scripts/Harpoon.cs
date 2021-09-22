@@ -44,36 +44,40 @@ public class Harpoon : MonoBehaviour
     {
         if(canShoot)
         {
-            line.positionCount = lineCount;
+            line.positionCount = 2;
             spear.ActivateSpear();
             spear.ShootSpear(spearVelocity);
             canShoot = false;
         }
-        //else
-        //{
-        //    line.positionCount = 0;
-        //    spear.DeactivateSpear();
-        //    canShoot = true;
-        //}
+        else
+        {
+            line.positionCount = 0;
+            spear.DeactivateSpear();
+            canShoot = true;
+        }
     }
 
     public void DrawRope()
     {
-        for (int i = 0; i < lineCount; i++)
-        {
-            line.SetPosition(i, Arc(lineStartPos.position, endLinePos.position, height, i, transform.up));
-        }
+        line.SetPosition(0, lineStartPos.position);
+        line.SetPosition(1, endLinePos.position);
+
+        //for (int i = 0; i < lineCount; i++)
+        //{
+        //    line.SetPosition(i, Arc(lineStartPos.position, endLinePos.position, height, i, transform.up));
+        //}
     }
 
-    Vector3 Arc(Vector3 start, Vector3 end, float height, float t, Vector3 outDirection)
-    {
-        float parabolicT = t * 2 - 1;
-        Vector3 travelDirection = end - start;
-        Vector3 levelDirection = end - new Vector3(start.x, end.y, start.z);
-        Vector3 right = Vector3.Cross(travelDirection, levelDirection);
-        Vector3 up = outDirection;
-        Vector3 result = start + t * travelDirection;
-        result += ((-parabolicT * parabolicT + 1) * height) * up.normalized;
-        return result;
-    }
+    //UR FUNKTION
+    //Vector3 Arc(Vector3 start, Vector3 end, float height, float t, Vector3 outDirection)
+    //{
+    //    float parabolicT = t * 2 - 1;
+    //    Vector3 travelDirection = end - start;
+    //    Vector3 levelDirection = end - new Vector3(start.x, end.y, start.z);
+    //    Vector3 right = Vector3.Cross(travelDirection, levelDirection);
+    //    Vector3 up = outDirection;
+    //    Vector3 result = start + t * travelDirection;
+    //    result += ((-parabolicT * parabolicT + 1) * height) * up.normalized;
+    //    return result;
+    //}
 }

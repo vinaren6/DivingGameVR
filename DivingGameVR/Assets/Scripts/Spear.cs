@@ -5,18 +5,17 @@ using UnityEngine;
 public class Spear : MonoBehaviour
 {
     public Material deadFishMat;
-    Vector3 startPos;
-    Quaternion startRot;
     Rigidbody rb;
     Transform parent;
+    Transform anchor;
 
     private void Awake()
     {
-        startPos = transform.position;
-        startRot = transform.rotation;
         rb = GetComponent<Rigidbody>();
 
-        parent = transform.parent;
+        parent = transform.parent.transform.parent;
+        
+        anchor = transform.parent;
 
         DeactivateSpear();
     }
@@ -41,8 +40,8 @@ public class Spear : MonoBehaviour
     public void DeactivateSpear()
     {
         rb.isKinematic = true;
-        transform.position = startPos;
-        transform.rotation = startRot;
+        transform.position = anchor.position;
+        transform.rotation = anchor.rotation;
         rb.velocity = Vector3.zero;
         transform.SetParent(parent);
     }

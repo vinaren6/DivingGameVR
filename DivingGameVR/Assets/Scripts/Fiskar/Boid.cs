@@ -132,4 +132,15 @@ public class Boid : MonoBehaviour
         Vector3 v = vector.normalized * boidSettings.maxSpeed - velocity;
         return Vector3.ClampMagnitude(v, boidSettings.rotationSpeed);
     }
+
+    public Collider GetCollider()
+    {
+        Collider collider = GetComponent<Collider>();
+        
+        if (collider == null)
+            collider = GetComponentInChildren<Collider>();
+
+        return collider;
+    }
+
 }

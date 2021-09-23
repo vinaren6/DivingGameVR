@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Spear : MonoBehaviour
 {
-    public Material deadFishMat;
     Rigidbody rb;
     Transform parent;
     Transform anchor;
+    Transform spearTip;
 
     private void Awake()
     {
@@ -16,6 +16,8 @@ public class Spear : MonoBehaviour
         parent = transform.parent.transform.parent;
         
         anchor = transform.parent;
+
+        spearTip = transform.Find("SpearTip");
 
         DeactivateSpear();
     }
@@ -59,10 +61,15 @@ public class Spear : MonoBehaviour
             boidList.Remove(boid);
             BoidManager.Instance.SetBoids(boidList.ToArray());
 
+
+            Destroy(boid.GetCollider());
             Destroy(boid);
-            boid.gameObject.AddComponent<Rigidbody>();
+            boid.gameObject.transform.SetParent(spearTip);
             fishTarget.GetComponent<Renderer>().material = boid.deadMaterial;
         }
+
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
     }
 
     private void OnCollisionEnter(Collision collision)

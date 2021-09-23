@@ -27,7 +27,6 @@ public class FogEffect : MonoBehaviour
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        Debug.Log(source.name + "|" + destination.name);
         Graphics.Blit(source, destination, _mat);
     }
 }

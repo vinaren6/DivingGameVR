@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605b02929a87bd242b8abcba329b386e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swimForce: 0.5
+  swimForce: 2
   resistanceForce: 2
   deadZone: 1
   interval: 0.5

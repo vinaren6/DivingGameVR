@@ -8,6 +8,7 @@ public class PlayerSwim : MonoBehaviour
     [SerializeField] private float resistanceForce;
     [SerializeField] private float stopOffset;
     [SerializeField] private float deadZone;
+    [SerializeField] private float turningDeadZone;
     [SerializeField] private float interval;
     [SerializeField] private Transform trackingSpace;
 
@@ -15,6 +16,9 @@ public class PlayerSwim : MonoBehaviour
     public float leftTrigger, rightTrigger;
     [SerializeField] private ControllerVelocity rightVelocity;
     [SerializeField] private ControllerVelocity leftVelocity;
+
+    [SerializeField] private Vector3 LEFT_DEBUG;
+    [SerializeField] private float RIGHT_DEBUG;
 
     private float currentWaitTime;
     private Rigidbody rigidbody;
@@ -29,6 +33,9 @@ public class PlayerSwim : MonoBehaviour
     {
         leftTrigger = ControllerManager.Instance.leftTrigger;
         rightTrigger = ControllerManager.Instance.rightTrigger;
+
+        LEFT_DEBUG = leftVelocity.Velocity;
+        RIGHT_DEBUG = rightVelocity.Velocity.sqrMagnitude;
     }
 
     private void FixedUpdate()
@@ -43,20 +50,23 @@ public class PlayerSwim : MonoBehaviour
             if (localVelocity.sqrMagnitude > deadZone * deadZone)
                 AddSwimmingForce(localVelocity.normalized);
 
-            rigidbody.angularVelocity = Vector3.zero;
+            //rigidbody.angularVelocity = Vector3.zero;
         }
         else
         {
             if (rightTrigger > triggerPress)
             {
-                Vector3 rightHandDirection = rightVelocity.Velocity;
-                rightHandDirection *= -1;
-
-                if (rightHandDirection.sqrMagnitude > deadZone * deadZone)
-                    AddRotateForce(rightHandDirection.normalized);
+                //rightHandDirection *= -1;
+                //Debug.Log(Mathf.Abs(rightVelocity.Velocity.sqrMagnitude) > turningDeadZone);
+                if (Mathf.Abs(rightVelocity.Velocity.sqrMagnitude) > turningDeadZone)
+                {
+                    Debug.LogWarning("RETARD ALERT!");
+                    AddRotateForce(rightVelocity.Velocity.normalized);
+                }
             }
             else if (leftTrigger > triggerPress)
             {
+                return;
                 Vector3 leftHandDirection = leftVelocity.Velocity;
                 leftHandDirection *= -1;
 
@@ -65,7 +75,7 @@ public class PlayerSwim : MonoBehaviour
             }
             else
             {
-                rigidbody.angularVelocity = Vector3.zero;
+                rigidbody.angularVelocity = Vector3.zero;//Stannar spelaren efter man släpper trigger knappen. Ta bort
             }
         }
 
@@ -74,9 +84,8 @@ public class PlayerSwim : MonoBehaviour
 
     private void ApplyReststanceForce()
     {
-        Debug.Log(rigidbody.velocity.sqrMagnitude);
         if (rigidbody.velocity.sqrMagnitude > stopOffset)
-            rigidbody.AddForce(-rigidbody.velocity * resistanceForce, ForceMode.Impulse);
+            rigidbody.AddForce(-rigidbody.velocity * resistanceForce, ForceMode.Impulse);//Acc instead?
         else
             rigidbody.velocity = Vector3.zero;
     }
@@ -90,6 +99,7 @@ public class PlayerSwim : MonoBehaviour
 
     private void AddRotateForce(Vector3 localVelocity)
     {
+        Debug.Log("What the fuck");
         Vector3 worldSpaceVelocity = trackingSpace.TransformDirection(localVelocity);
         rigidbody.AddTorque(worldSpaceVelocity * swimForce);
     }

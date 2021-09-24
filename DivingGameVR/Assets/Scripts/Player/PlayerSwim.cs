@@ -6,6 +6,7 @@ public class PlayerSwim : MonoBehaviour
 {
     [SerializeField] private float swimForce;
     [SerializeField] private float resistanceForce;
+    [SerializeField] private float stopOffset;
     [SerializeField] private float deadZone;
     [SerializeField] private float interval;
     [SerializeField] private Transform trackingSpace;
@@ -37,7 +38,7 @@ public class PlayerSwim : MonoBehaviour
             Vector3 rightHandDirection = leftVelocity.Velocity;
             Vector3 leftHandDirection = rightVelocity.Velocity;
             Vector3 localVelocity = leftHandDirection + rightHandDirection;
-            localVelocity *= -1f;         
+            localVelocity *= -1f;
 
             if (localVelocity.sqrMagnitude > deadZone * deadZone)
                 AddSwimmingForce(localVelocity.normalized);
@@ -46,7 +47,7 @@ public class PlayerSwim : MonoBehaviour
         }
         else
         {
-            if(rightTrigger > triggerPress)
+            if (rightTrigger > triggerPress)
             {
                 Vector3 rightHandDirection = rightVelocity.Velocity;
                 rightHandDirection *= -1;
@@ -54,7 +55,7 @@ public class PlayerSwim : MonoBehaviour
                 if (rightHandDirection.sqrMagnitude > deadZone * deadZone)
                     AddRotateForce(rightHandDirection.normalized);
             }
-            else if(leftTrigger > triggerPress)
+            else if (leftTrigger > triggerPress)
             {
                 Vector3 leftHandDirection = leftVelocity.Velocity;
                 leftHandDirection *= -1;
@@ -63,7 +64,7 @@ public class PlayerSwim : MonoBehaviour
                     AddRotateForce(leftHandDirection.normalized);
             }
             else
-            {           
+            {
                 rigidbody.angularVelocity = Vector3.zero;
             }
         }
@@ -73,10 +74,11 @@ public class PlayerSwim : MonoBehaviour
 
     private void ApplyReststanceForce()
     {
-        if (rigidbody.velocity.sqrMagnitude > 0.01f && currentDirection != Vector3.zero)
-            rigidbody.AddForce(-rigidbody.velocity * resistanceForce, ForceMode.Acceleration);
+        Debug.Log(rigidbody.velocity.sqrMagnitude);
+        if (rigidbody.velocity.sqrMagnitude > stopOffset)
+            rigidbody.AddForce(-rigidbody.velocity * resistanceForce, ForceMode.Impulse);
         else
-            currentDirection = Vector3.zero;
+            rigidbody.velocity = Vector3.zero;
     }
 
     private void AddSwimmingForce(Vector3 localVelocity)
@@ -88,8 +90,7 @@ public class PlayerSwim : MonoBehaviour
 
     private void AddRotateForce(Vector3 localVelocity)
     {
-        //localVelocity = localVelocity * 0.6f;
         Vector3 worldSpaceVelocity = trackingSpace.TransformDirection(localVelocity);
-        rigidbody.angularVelocity = new Vector3(0, worldSpaceVelocity.x, 0);
+        rigidbody.AddTorque(worldSpaceVelocity * swimForce);
     }
 }

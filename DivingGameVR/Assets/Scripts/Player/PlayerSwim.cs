@@ -6,7 +6,9 @@ public class PlayerSwim : MonoBehaviour
 {
     [SerializeField] private float swimForce;
     [SerializeField] private float resistanceForce;
+    [SerializeField] private float resistanceForceTurning;
     [SerializeField] private float stopOffset;
+    [SerializeField] private float stopOffsetTurning;
     [SerializeField] private float deadZone;
     [SerializeField] private float turningDeadZone;
     [SerializeField] private float interval;
@@ -18,7 +20,7 @@ public class PlayerSwim : MonoBehaviour
     [SerializeField] private ControllerVelocity leftVelocity;
 
     [SerializeField] private Vector3 LEFT_DEBUG;
-    [SerializeField] private float RIGHT_DEBUG;
+    [SerializeField] private Vector3 RIGHT_DEBUG;
 
     private float currentWaitTime;
     private Rigidbody rigidbody;
@@ -35,7 +37,7 @@ public class PlayerSwim : MonoBehaviour
         rightTrigger = ControllerManager.Instance.rightTrigger;
 
         LEFT_DEBUG = leftVelocity.Velocity;
-        RIGHT_DEBUG = rightVelocity.Velocity.sqrMagnitude;
+        RIGHT_DEBUG = rightVelocity.Velocity;
     }
 
     private void FixedUpdate()
@@ -56,36 +58,43 @@ public class PlayerSwim : MonoBehaviour
         {
             if (rightTrigger > triggerPress)
             {
-                //rightHandDirection *= -1;
-                //Debug.Log(Mathf.Abs(rightVelocity.Velocity.sqrMagnitude) > turningDeadZone);
-                if (Mathf.Abs(rightVelocity.Velocity.sqrMagnitude) > turningDeadZone)
+                Debug.Log(rightVelocity.Velocity.normalized);
+
+                Vector3 vTemp = rightVelocity.Velocity.normalized;
+                float fTemp = rightVelocity.Velocity.x * rightVelocity.Velocity.x +
+                              rightVelocity.Velocity.z * rightVelocity.Velocity.z;
+                fTemp = Mathf.Sqrt(fTemp);
+
+                if (fTemp > turningDeadZone)
                 {
-                    Debug.LogWarning("RETARD ALERT!");
-                    AddRotateForce(rightVelocity.Velocity.normalized);
+                    AddRotateForce(new Vector3(0, fTemp, 0));
                 }
             }
             else if (leftTrigger > triggerPress)
             {
-                return;
-                Vector3 leftHandDirection = leftVelocity.Velocity;
-                leftHandDirection *= -1;
-
-                if (leftHandDirection.sqrMagnitude > deadZone * deadZone)
-                    AddRotateForce(leftHandDirection.normalized);
-            }
-            else
-            {
-                rigidbody.angularVelocity = Vector3.zero;//Stannar spelaren efter man släpper trigger knappen. Ta bort
+                if (Mathf.Abs(leftVelocity.Velocity.sqrMagnitude) > turningDeadZone)
+                {
+                    AddRotateForce(leftVelocity.Velocity.normalized);
+                }
             }
         }
 
         ApplyReststanceForce();
+        ApplyReststanceTurning();
+    }
+
+    private void ApplyReststanceTurning()
+    {
+        if (rigidbody.angularVelocity.sqrMagnitude > stopOffsetTurning)
+            rigidbody.AddTorque(-rigidbody.angularVelocity * resistanceForceTurning, ForceMode.Impulse); //Acc instead?
+        else
+            rigidbody.angularVelocity = Vector3.zero;
     }
 
     private void ApplyReststanceForce()
     {
         if (rigidbody.velocity.sqrMagnitude > stopOffset)
-            rigidbody.AddForce(-rigidbody.velocity * resistanceForce, ForceMode.Impulse);//Acc instead?
+            rigidbody.AddForce(-rigidbody.velocity * resistanceForce, ForceMode.Impulse); //Acc instead?
         else
             rigidbody.velocity = Vector3.zero;
     }
@@ -99,8 +108,7 @@ public class PlayerSwim : MonoBehaviour
 
     private void AddRotateForce(Vector3 localVelocity)
     {
-        Debug.Log("What the fuck");
         Vector3 worldSpaceVelocity = trackingSpace.TransformDirection(localVelocity);
-        rigidbody.AddTorque(worldSpaceVelocity * swimForce);
+        rigidbody.AddRelativeTorque(worldSpaceVelocity * swimForce);
     }
 }

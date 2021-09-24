@@ -472,7 +472,7 @@ PrefabInstance:
     - target: {fileID: 2529859655330786158, guid: 39a768e4e858dc64c991556f4ed54220,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -49.243
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3065423391276537265, guid: 39a768e4e858dc64c991556f4ed54220,
         type: 3}
@@ -512,7 +512,7 @@ PrefabInstance:
     - target: {fileID: 3065423392221793424, guid: 39a768e4e858dc64c991556f4ed54220,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -180.6
+      value: -223.26
       objectReference: {fileID: 0}
     - target: {fileID: 3065423392221793424, guid: 39a768e4e858dc64c991556f4ed54220,
         type: 3}
@@ -522,27 +522,27 @@ PrefabInstance:
     - target: {fileID: 3065423392221793424, guid: 39a768e4e858dc64c991556f4ed54220,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9039608
+      value: 0.9040229
       objectReference: {fileID: 0}
     - target: {fileID: 3065423392221793424, guid: 39a768e4e858dc64c991556f4ed54220,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.010531923
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3065423392221793424, guid: 39a768e4e858dc64c991556f4ed54220,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.42745662
+      value: 0.4274841
       objectReference: {fileID: 0}
     - target: {fileID: 3065423392221793424, guid: 39a768e4e858dc64c991556f4ed54220,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.004980267
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3065423392221793424, guid: 39a768e4e858dc64c991556f4ed54220,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -1.335
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3065423392221793424, guid: 39a768e4e858dc64c991556f4ed54220,
         type: 3}
@@ -558,11 +558,6 @@ PrefabInstance:
         type: 3}
       propertyPath: singleDeadZone
       value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3065423392221793425, guid: 39a768e4e858dc64c991556f4ed54220,
-        type: 3}
-      propertyPath: turningDeadZone
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3802259653544555010, guid: 39a768e4e858dc64c991556f4ed54220,
         type: 3}

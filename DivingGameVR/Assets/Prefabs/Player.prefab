@@ -402,14 +402,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swimForce: 3
   resistanceForce: 0.01
+  resistanceForceTurning: 0.01
   stopOffset: 0.001
+  stopOffsetTurning: 0.001
   deadZone: 1
+  turningDeadZone: 2
   interval: 0.5
   trackingSpace: {fileID: 2529859655330786158}
   leftTrigger: 0
   rightTrigger: 0
   rightVelocity: {fileID: 3065423391752415734}
   leftVelocity: {fileID: 3065423392175633282}
+  LEFT_DEBUG: {x: 0, y: 0, z: 0}
+  RIGHT_DEBUG: {x: 0, y: 0, z: 0}
 --- !u!136 &7184271557026052771
 CapsuleCollider:
   m_ObjectHideFlags: 0

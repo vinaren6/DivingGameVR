@@ -613,10 +613,12 @@ MonoBehaviour:
   fishesPref:
   - {fileID: 1143429493, guid: fd3dbed2b7812bc4a8437a0c81a55fa5, type: 3}
   - {fileID: 1970525845, guid: 602e572b40af669478a8fcfa7e5b03a7, type: 3}
-  - {fileID: 3622573637776009373, guid: 8f19bd5b30f530941a1e0c3d49692541, type: 3}
   sharkPref: {fileID: 4441866263427988108, guid: ab43858b0b26cd04aa6209e4ea816f22,
     type: 3}
-  percentageOfSharks: 0.038
+  jellyPref: {fileID: 3622573637776009373, guid: 8f19bd5b30f530941a1e0c3d49692541,
+    type: 3}
+  percentageOfSharks: 0.067
+  percentageOfJellys: 0.024
   spawnRadius: 88.3
   spawnCount: 956
 --- !u!1 &655994712

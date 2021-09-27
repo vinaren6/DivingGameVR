@@ -18,10 +18,15 @@ public class BoidManager : MonoBehaviour
 
     public Boid[] fishesPref;
     public Boid sharkPref;
+    public Boid jellyPref;
     [Range(0, 1f)]
     public float percentageOfSharks;
+
+    [Range(0, 1f)]
+    public float percentageOfJellys;
+
     public float spawnRadius = 10;
-   public int spawnCount = 200;
+    public int spawnCount = 200;
 
     private static BoidManager _instance;
 
@@ -41,8 +46,11 @@ public class BoidManager : MonoBehaviour
         boids = new Boid[(int)spawnCount];
 
         int totalSharks = Mathf.FloorToInt((float)spawnCount * percentageOfSharks);
+        int totalJellys = Mathf.FloorToInt((float)spawnCount * percentageOfJellys);
         spawnCount -= totalSharks;
+        spawnCount -= totalJellys;
 
+        //fiskar
         for (int i = 0; i < spawnCount; i++)
         {
             Vector3 poos = transform.position + Random.insideUnitSphere * spawnRadius;
@@ -54,10 +62,23 @@ public class BoidManager : MonoBehaviour
             boids[i] = boid;
         }
 
+        //hajar
         for (int i = spawnCount; i < spawnCount + totalSharks; i++)
         {
             Vector3 poos = transform.position + Random.insideUnitSphere * spawnRadius;
             Boid boid = Instantiate(sharkPref);
+            boid.transform.position = poos;
+            boid.transform.forward = Random.insideUnitSphere;
+            boid.transform.SetParent(transform);
+
+            boids[i] = boid;
+        }
+
+        //maneter
+        for (int i = spawnCount + totalSharks; i < spawnCount + totalJellys + totalSharks; i++)
+        {
+            Vector3 poos = transform.position + Random.insideUnitSphere * spawnRadius;
+            Boid boid = Instantiate(jellyPref);
             boid.transform.position = poos;
             boid.transform.forward = Random.insideUnitSphere;
             boid.transform.SetParent(transform);

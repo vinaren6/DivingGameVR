@@ -19,6 +19,8 @@ MonoBehaviour:
   averageAvoidanceCource: {x: 0, y: 0, z: 0}
   centerPosOfFlock: {x: 0, y: 0, z: 0}
   flockNumber: 0
+  sizeVariationMax: 0.13
+  sizeVaritaionMin: 0.3
 --- !u!65 &7202032049476478111
 BoxCollider:
   m_ObjectHideFlags: 0

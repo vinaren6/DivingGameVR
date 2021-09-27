@@ -32,6 +32,8 @@ MonoBehaviour:
   averageAvoidanceCource: {x: 0, y: 0, z: 0}
   centerPosOfFlock: {x: 0, y: 0, z: 0}
   flockNumber: 0
+  sizeVariationMax: 0.2
+  sizeVaritaionMin: 0.5
 --- !u!1001 &9120550231197524111
 PrefabInstance:
   m_ObjectHideFlags: 0

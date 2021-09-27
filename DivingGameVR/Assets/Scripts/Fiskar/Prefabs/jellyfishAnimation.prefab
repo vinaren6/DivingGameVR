@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4504899619562794079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0.000000010244548, z: 0}
-  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -102,6 +102,8 @@ MonoBehaviour:
   averageAvoidanceCource: {x: 0, y: 0, z: 0}
   centerPosOfFlock: {x: 0, y: 0, z: 0}
   flockNumber: 0
+  sizeVariationMax: 0.7
+  sizeVaritaionMin: 1.2
 --- !u!136 &6734310854823882113
 CapsuleCollider:
   m_ObjectHideFlags: 0

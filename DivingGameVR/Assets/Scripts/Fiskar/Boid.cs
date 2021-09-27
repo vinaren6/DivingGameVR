@@ -26,9 +26,12 @@ public class Boid : MonoBehaviour
     Transform savedTransform;
     Transform target;
 
+    public float sizeVariationMax = 1;
+    public float sizeVaritaionMin = 1;
     private void Awake()
     {
         savedTransform = gameObject.transform;
+        savedTransform.localScale = Vector3.one * Random.Range(sizeVaritaionMin, sizeVariationMax);
     }
 
     public void SetUpFish(BoidSettings settings, Transform target)

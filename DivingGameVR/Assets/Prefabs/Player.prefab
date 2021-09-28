@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &843394989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843394990}
+  m_Layer: 11
+  m_Name: Direction start
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &843394990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843394989}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2529859655330786158}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &25651251616188789
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +41,7 @@ GameObject:
   - component: {fileID: 4319450089346531671}
   - component: {fileID: 533702508974690209}
   - component: {fileID: 3065423392175633282}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftHand Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8864316680587496828}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Camera Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +250,10 @@ GameObject:
   - component: {fileID: 3065423391276537267}
   - component: {fileID: 3065423391276537266}
   - component: {fileID: 1221082741071656278}
-  m_Layer: 0
+  - component: {fileID: 1997585556}
+  - component: {fileID: 1997585557}
+  - component: {fileID: 1997585558}
+  m_Layer: 11
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -338,6 +371,99 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Main Camera - TPD - Rotation
       m_Flags: 0
+--- !u!114 &1997585556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3065423391276537265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143fe3e1848d13043866d4ddab3b41a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mat: {fileID: 2100000, guid: 172a34e19d5ad2c4bb47057cb4145f6c, type: 2}
+  _fogColor: {r: 0.09011215, g: 0.335655, b: 0.4245283, a: 0}
+  _depthStart: -48.5
+  _depthDistance: 260
+--- !u!114 &1997585557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3065423391276537265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 088265773bb293f478a34dfd003f0a48, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!114 &1997585558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3065423391276537265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 3065423391276537268}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &3065423392221793423
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +476,7 @@ GameObject:
   - component: {fileID: 3065423392221793426}
   - component: {fileID: 3065423392221793425}
   - component: {fileID: 7184271557026052771}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +490,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3065423392221793423}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.9790001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -402,13 +528,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swimForce: 3
   resistanceForce: 0.01
-  resistanceForceTurning: 0.01
+  resistanceForceTurning: 0.05
   stopOffset: 0.001
   stopOffsetTurning: 0.001
   deadZone: 1
-  turningDeadZone: 2
+  turningDeadZone: 0.1
+  rightHandPosition: {fileID: 3773510934468259464}
+  leftHandPosition: {fileID: 4319450089346531671}
   interval: 0.5
   trackingSpace: {fileID: 2529859655330786158}
+  direction: {x: 0, y: 0, z: 0}
+  startDirection: {fileID: 843394990}
+  turnDirection: 1
   leftTrigger: 0
   rightTrigger: 0
   rightVelocity: {fileID: 3065423391752415734}
@@ -441,7 +572,7 @@ GameObject:
   - component: {fileID: 7127870366462326314}
   - component: {fileID: 4611663997200459854}
   - component: {fileID: 4611663997200459849}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Locomotion System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,10 +698,8 @@ GameObject:
   - component: {fileID: 2529859655330786158}
   - component: {fileID: 675688065028393910}
   - component: {fileID: 4401178911037644979}
-  - component: {fileID: 4611663997138617297}
-  - component: {fileID: 4611663997138617302}
   - component: {fileID: 3065423391182869915}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: XR Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,12 +714,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5156608752386278579}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.9610001, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2170612677587151408}
   - {fileID: 194722058165415797}
   - {fileID: 8864316680587496828}
+  - {fileID: 843394990}
   m_Father: {fileID: 3065423392221793424}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -627,39 +757,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionAssets:
   - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
---- !u!143 &4611663997138617297
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5156608752386278579}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &4611663997138617302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5156608752386278579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af6bf904e410ee8479f9093d8830d1f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LocomotionProvider: {fileID: 4611663997200459854}
-  m_MinHeight: 0
-  m_MaxHeight: Infinity
 --- !u!114 &3065423391182869915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,7 +784,7 @@ GameObject:
   - component: {fileID: 3773510934468259464}
   - component: {fileID: 6735658803480178456}
   - component: {fileID: 3065423391752415734}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightHand Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2170612677587151408}
   - component: {fileID: 1456672022122464730}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: XR Interaction Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}

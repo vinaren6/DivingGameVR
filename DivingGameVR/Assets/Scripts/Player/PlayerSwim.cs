@@ -11,8 +11,13 @@ public class PlayerSwim : MonoBehaviour
     [SerializeField] private float stopOffsetTurning;
     [SerializeField] private float deadZone;
     [SerializeField] private float turningDeadZone;
+    [SerializeField] private Transform rightHandPosition;
+    [SerializeField] private Transform leftHandPosition;
     [SerializeField] private float interval;
     [SerializeField] private Transform trackingSpace;
+    [SerializeField] private Vector3 direction;
+    [SerializeField] private Transform startDirection;
+    [SerializeField] private float turnDirection = 1f;
 
     private float triggerPress = 0.9f;
     public float leftTrigger, rightTrigger;
@@ -56,26 +61,47 @@ public class PlayerSwim : MonoBehaviour
         }
         else
         {
-            if (rightTrigger > triggerPress)
+            if (rightTrigger > triggerPress && leftTrigger < triggerPress) //Kolla ifall högerhanden åker mot vänsterhanden???
             {
-                Debug.Log(rightVelocity.Velocity.normalized);
+                if (startDirection.localPosition == Vector3.zero)
+                {
+                    startDirection.localPosition = rightHandPosition.localPosition;
+                }
+
+                Vector3 lastDirection = direction;
+                direction = rightHandPosition.localPosition - startDirection.localPosition;
 
                 Vector3 vTemp = rightVelocity.Velocity.normalized;
                 float fTemp = rightVelocity.Velocity.x * rightVelocity.Velocity.x +
                               rightVelocity.Velocity.z * rightVelocity.Velocity.z;
                 fTemp = Mathf.Sqrt(fTemp);
 
+                if (direction.magnitude < lastDirection.magnitude)
+                {
+                    turnDirection = -1;
+                }
+                else
+                {
+                    turnDirection = 1;
+                }
+
+                Debug.Log(fTemp);
+
                 if (fTemp > turningDeadZone)
                 {
                     AddRotateForce(new Vector3(0, fTemp, 0));
                 }
             }
-            else if (leftTrigger > triggerPress)
+            else if (leftTrigger > triggerPress && rightTrigger < triggerPress)
             {
                 if (Mathf.Abs(leftVelocity.Velocity.sqrMagnitude) > turningDeadZone)
                 {
                     AddRotateForce(leftVelocity.Velocity.normalized);
                 }
+            }
+            else
+            {
+                startDirection.localPosition = Vector3.zero;
             }
         }
 
@@ -109,6 +135,6 @@ public class PlayerSwim : MonoBehaviour
     private void AddRotateForce(Vector3 localVelocity)
     {
         Vector3 worldSpaceVelocity = trackingSpace.TransformDirection(localVelocity);
-        rigidbody.AddRelativeTorque(worldSpaceVelocity * swimForce);
+        rigidbody.AddRelativeTorque(worldSpaceVelocity * swimForce * turnDirection);
     }
 }

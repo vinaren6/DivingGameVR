@@ -23,6 +23,8 @@ public class Harpoon : MonoBehaviour
 
     private void Awake()
     {
+        SoundManager.Initialize();
+
         spear = GetComponentInChildren<Spear>();
         canShoot = true;
         inputActions = new MouseClick();
@@ -37,6 +39,7 @@ public class Harpoon : MonoBehaviour
 
     private void Update()
     {
+        SoundManager.PlaySound(SoundManager.Sound.PlayerMove);
         if (canShoot == false)
         {
             DrawRope();
@@ -49,6 +52,7 @@ public class Harpoon : MonoBehaviour
         {
             if (canShoot)
             {
+                SoundManager.PlaySound(SoundManager.Sound.ShootSound, lineStartPos.position);
                 line.positionCount = 2;
                 spear.ActivateSpear();
                 spear.ShootSpear(spearVelocity);

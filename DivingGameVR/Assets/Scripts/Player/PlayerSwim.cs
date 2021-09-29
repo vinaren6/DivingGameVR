@@ -61,14 +61,11 @@ public class PlayerSwim : MonoBehaviour
         }
         else
         {
-            if (rightTrigger > triggerPress &&
-                leftTrigger < triggerPress) //Kolla ifall högerhanden åker mot vänsterhanden???
+            if (rightTrigger > triggerPress && leftTrigger < triggerPress)
             {
-                //Set start point
-                if (startDirection.localPosition == Vector3.zero)
-                {
-                    startDirection.localPosition = rightHandPosition.localPosition;
-                }
+                //Sets left point
+                startDirection.parent = rightHandPosition;
+                startDirection.localPosition = Vector3.left;
 
                 //Last and current direction
                 Vector3 lastDirection = direction;
@@ -81,16 +78,10 @@ public class PlayerSwim : MonoBehaviour
 
                 //Turn direction, + or -
                 if (direction.magnitude < lastDirection.magnitude)
-                {
-                    turnDirection = 0;
-                }
+                    turnDirection = -1;
                 else
-                {
                     turnDirection = 1;
-                }
-
-                Debug.Log(fTemp);
-
+                
                 //Add turn force
                 if (fTemp > turningDeadZone)
                 {
@@ -99,14 +90,30 @@ public class PlayerSwim : MonoBehaviour
             }
             else if (leftTrigger > triggerPress && rightTrigger < triggerPress)
             {
-                if (Mathf.Abs(leftVelocity.Velocity.sqrMagnitude) > turningDeadZone)
+                //Sets Right point
+                startDirection.parent = leftHandPosition;
+                startDirection.localPosition = Vector3.left;
+
+                //Last and current direction
+                Vector3 lastDirection = direction;
+                direction = leftHandPosition.localPosition - startDirection.localPosition;
+
+                Vector3 vTemp = leftVelocity.Velocity.normalized;
+                float fTemp = leftVelocity.Velocity.x * leftVelocity.Velocity.x +
+                              leftVelocity.Velocity.z * leftVelocity.Velocity.z;
+                fTemp = Mathf.Sqrt(fTemp);
+
+                //Turn direction, + or -
+                if (direction.magnitude < lastDirection.magnitude)
+                    turnDirection = -1;
+                else
+                    turnDirection = 1;
+                
+                //Add turn force
+                if (fTemp > turningDeadZone)
                 {
-                    AddRotateForce(leftVelocity.Velocity.normalized);
+                    AddRotateForce(new Vector3(0, fTemp, 0));
                 }
-            }
-            else
-            {
-                startDirection.localPosition = Vector3.zero;
             }
         }
 
@@ -114,17 +121,32 @@ public class PlayerSwim : MonoBehaviour
         ApplyReststanceTurning();
     }
 
+    #region DebugGizmos
+
     private void OnDrawGizmos()
     {
+        //Right
         var temp = rightHandPosition;
         temp.eulerAngles = new Vector3(temp.eulerAngles.x, temp.eulerAngles.y, temp.eulerAngles.z * 0);
-        
+
+        Gizmos.color = Color.blue;
+        Gizmos.matrix = temp.localToWorldMatrix;
+        Gizmos.DrawLine(Vector3.zero, Vector3.left);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(Vector3.zero, Vector3.right);
+
+        //Left
+        temp = leftHandPosition;
+        temp.eulerAngles = new Vector3(temp.eulerAngles.x, temp.eulerAngles.y, temp.eulerAngles.z * 0);
+
         Gizmos.color = Color.blue;
         Gizmos.matrix = temp.localToWorldMatrix;
         Gizmos.DrawLine(Vector3.zero, Vector3.left);
         Gizmos.color = Color.red;
         Gizmos.DrawLine(Vector3.zero, Vector3.right);
     }
+
+    #endregion
 
     private void ApplyReststanceTurning()
     {

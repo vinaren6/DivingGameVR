@@ -328,7 +328,7 @@ PrefabInstance:
     - target: {fileID: 2551783466922846747, guid: ed7ad0a65294664488d120e88fdde7f2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2551783466922846747, guid: ed7ad0a65294664488d120e88fdde7f2,
         type: 3}
@@ -373,7 +373,12 @@ PrefabInstance:
     - target: {fileID: 2551783466922846948, guid: ed7ad0a65294664488d120e88fdde7f2,
         type: 3}
       propertyPath: m_FarClipPlane
-      value: 130
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551783466922846948, guid: ed7ad0a65294664488d120e88fdde7f2,
+        type: 3}
+      propertyPath: m_Orthographic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2551783466922846950, guid: ed7ad0a65294664488d120e88fdde7f2,
         type: 3}

@@ -58,4 +58,11 @@ public class HandGrabInteraction : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, pickupDistance);
     }
+    public bool IsGrabbedObj(GameObject obj)
+    {
+        if (pickupObject == obj)
+            return true;
+        else
+            return false;
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Harpoon : MonoBehaviour
-{   
+{
     private Spear spear;
     public float spearVelocity;
     bool canShoot;
@@ -19,6 +19,8 @@ public class Harpoon : MonoBehaviour
     public int lineCount;
     public float height;
 
+    Transform parent;
+
     private void Awake()
     {
         spear = GetComponentInChildren<Spear>();
@@ -28,13 +30,14 @@ public class Harpoon : MonoBehaviour
         inputActions.Player.Mouse.Enable();
 
 
+        parent = transform.parent;
         line = GetComponent<LineRenderer>();
         line.positionCount = 2;
     }
 
     private void Update()
     {
-        if(canShoot == false)
+        if (canShoot == false)
         {
             DrawRope();
         }
@@ -42,18 +45,21 @@ public class Harpoon : MonoBehaviour
 
     public void Shoot(InputAction.CallbackContext context)
     {
-        if(canShoot)
+        if ()
         {
-            line.positionCount = 2;
-            spear.ActivateSpear();
-            spear.ShootSpear(spearVelocity);
-            canShoot = false;
-        }
-        else
-        {
-            line.positionCount = 0;
-            spear.DeactivateSpear();
-            canShoot = true;
+            if (canShoot)
+            {
+                line.positionCount = 2;
+                spear.ActivateSpear();
+                spear.ShootSpear(spearVelocity);
+                canShoot = false;
+            }
+            else
+            {
+                line.positionCount = 0;
+                spear.DeactivateSpear();
+                canShoot = true;
+            }
         }
     }
 

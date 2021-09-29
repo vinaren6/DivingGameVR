@@ -5085,6 +5085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5476084521557329012}
+  - component: {fileID: 4662674183346511567}
   m_Layer: 0
   m_Name: patrick
   m_TagString: Untagged
@@ -5092,6 +5093,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!205 &4662674183346511567
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4662674183346511566}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.000061035156, y: 41.25537, z: 0}
+  m_Size: 86.910645
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1962876037830489378}
+    - renderer: {fileID: 685915451438543530}
+    - renderer: {fileID: 6224946181544616103}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1962876037830489378}
+    - renderer: {fileID: 685915451438543530}
+    - renderer: {fileID: 6224946181544616103}
+  - screenRelativeHeight: 0.13508901
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1962876037830489378}
+    - renderer: {fileID: 685915451438543530}
+    - renderer: {fileID: 6224946181544616103}
+  m_Enabled: 1
 --- !u!1 &4694432407835880242
 GameObject:
   m_ObjectHideFlags: 0
@@ -5458,6 +5492,7 @@ GameObject:
   - component: {fileID: 3573472475902193847}
   - component: {fileID: 1819640157115714045}
   - component: {fileID: 2910753856432909673}
+  - component: {fileID: 5702024655860605837}
   m_Layer: 0
   m_Name: spongebob
   m_TagString: Untagged
@@ -5465,6 +5500,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!205 &5702024655860605837
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702024655860605836}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.007550966, y: 0.062499046, z: -0.00000166893}
+  m_Size: 0.15360019
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2910753856432909673}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2910753856432909673}
+  - screenRelativeHeight: 0.08063266
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2910753856432909673}
+  m_Enabled: 1
 --- !u!4 &5708566460435792644
 Transform:
   m_ObjectHideFlags: 0
@@ -6013,6 +6075,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8058959918065598098}
+  - component: {fileID: 7249948726684902441}
   m_Layer: 0
   m_Name: gary
   m_TagString: Untagged
@@ -6020,6 +6083,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!205 &7249948726684902441
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7249948726684902440}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.1949389, y: 2.7663128, z: -0.000060915947}
+  m_Size: 7.2300034
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 799504618595077751}
+    - renderer: {fileID: 8814190175294139890}
+    - renderer: {fileID: 1917782229455118682}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 799504618595077751}
+    - renderer: {fileID: 8814190175294139890}
+    - renderer: {fileID: 1917782229455118682}
+  - screenRelativeHeight: 0.038271643
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 799504618595077751}
+    - renderer: {fileID: 8814190175294139890}
+    - renderer: {fileID: 1917782229455118682}
+  m_Enabled: 1
 --- !u!1 &7271305952550922834
 GameObject:
   m_ObjectHideFlags: 0
@@ -6156,6 +6252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7471939347995108359}
+  - component: {fileID: 7852722573181943486}
   m_Layer: 0
   m_Name: SK_MP_Squidward
   m_TagString: Untagged
@@ -6163,6 +6260,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!205 &7852722573181943486
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7852722573181943485}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0011978149, y: 48.86876, z: 2.1444283}
+  m_Size: 101.6469
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5823732675022325762}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5823732675022325762}
+  - screenRelativeHeight: 0.15851258
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5823732675022325762}
+  m_Enabled: 1
 --- !u!1 &7925150766817611569
 GameObject:
   m_ObjectHideFlags: 0

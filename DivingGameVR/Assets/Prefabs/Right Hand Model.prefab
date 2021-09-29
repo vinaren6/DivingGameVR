@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2966050337949275077
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 456932534846750048}
-  m_Layer: 0
-  m_Name: Collider
-  m_TagString: HandCollider
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &456932534846750048
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2966050337949275077}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0429, y: -0, z: 0.0123}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6524717744485737630}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6524717744485906560
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,7 +945,6 @@ Transform:
   m_Children:
   - {fileID: 6524717744485737624}
   - {fileID: 6524717744485737626}
-  - {fileID: 456932534846750048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
@@ -1012,7 +981,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightController: 1
   handAnimator: {fileID: 0}
-  interactionCenter: {fileID: 456932534846750048}
 --- !u!114 &1448975716352435286
 MonoBehaviour:
   m_ObjectHideFlags: 0

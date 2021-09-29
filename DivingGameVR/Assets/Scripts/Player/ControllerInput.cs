@@ -9,11 +9,6 @@ public class ControllerInput : MonoBehaviour
     [SerializeField] private bool rightController;
     [SerializeField] private Animator handAnimator;
 
-    [SerializeField] private Transform interactionCenter;
-    private float interactionSize = 0.08f;
-    private LayerMask pickupLayer = 1 << 6;
-    private Transform interactedObject;
-
     private readonly string gripAnim = "Grip";
     private readonly string triggerAnim = "Trigger";
 
@@ -56,10 +51,5 @@ public class ControllerInput : MonoBehaviour
         {
             handAnimator.SetFloat(gripAnim, 0);
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(interactionCenter.position, interactionSize);
     }
 }

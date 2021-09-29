@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: causticMat
-  m_Shader: {fileID: 4800000, guid: c0ace1ca4bc0718448acf798c93d52d9, type: 3}
+  m_Shader: {fileID: 4800000, guid: eceeb92645096a7478ca5c9bfa739d06, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShadowTex:
-        m_Texture: {fileID: 2800000, guid: f816f8c3ef43ce94fb94aae8b06bd142, type: 3}
+        m_Texture: {fileID: 2800000, guid: 258802acce826574d9d7d7c19da6d73e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -75,6 +75,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Size: 10
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

@@ -380,6 +380,16 @@ PrefabInstance:
       propertyPath: m_Orthographic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2551783466922846948, guid: ed7ad0a65294664488d120e88fdde7f2,
+        type: 3}
+      propertyPath: m_OrthographicSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551783466922846949, guid: ed7ad0a65294664488d120e88fdde7f2,
+        type: 3}
+      propertyPath: fps
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 2551783466922846950, guid: ed7ad0a65294664488d120e88fdde7f2,
         type: 3}
       propertyPath: m_Name
@@ -1223,7 +1233,7 @@ Terrain:
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 2
   m_DrawHeightmap: 1
-  m_DrawInstanced: 1
+  m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
   m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}

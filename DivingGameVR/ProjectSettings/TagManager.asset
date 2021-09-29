@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fish
   - HandCollider
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - FishWalls
   - Player
   - HandCollisionMineStuff
-  - 
+  - MenuSelection
   - 
   - 
   - 

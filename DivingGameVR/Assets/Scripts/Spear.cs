@@ -50,7 +50,11 @@ public class Spear : MonoBehaviour
 
     public void HitFish(GameObject fishTarget)
     {
-        Boid boid = fishTarget.transform.parent.GetComponent<Boid>();
+        Boid boid = fishTarget.GetComponent<Boid>();
+        if (boid == null)
+        {
+            boid = fishTarget.transform.parent.GetComponent<Boid>();
+        }
 
         if (boid != null)
         {
@@ -65,7 +69,13 @@ public class Spear : MonoBehaviour
             Destroy(boid.GetCollider());
             Destroy(boid);
             boid.gameObject.transform.SetParent(spearTip);
-            fishTarget.GetComponent<Renderer>().material = boid.deadMaterial;
+            Renderer renderer = fishTarget.GetComponent<Renderer>();
+            if(renderer != null)
+                fishTarget.GetComponent<Renderer>().material = boid.deadMaterial;
+
+            Animator animator = fishTarget.GetComponent<Animator>();
+            if (animator != null)
+                animator.enabled = false;
         }
 
         rb.velocity = Vector3.zero;

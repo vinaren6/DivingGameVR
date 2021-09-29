@@ -3228,8 +3228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mat: {fileID: 2100000, guid: 172a34e19d5ad2c4bb47057cb4145f6c, type: 2}
   _fogColor: {r: 0.09011215, g: 0.335655, b: 0.4245283, a: 0}
-  _depthStart: -48.5
-  _depthDistance: 450
+  _depthStart: 20
+  _depthDistance: 85
 --- !u!114 &1437362133
 MonoBehaviour:
   m_ObjectHideFlags: 0

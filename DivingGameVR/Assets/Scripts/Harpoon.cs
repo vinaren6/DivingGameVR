@@ -45,7 +45,7 @@ public class Harpoon : MonoBehaviour
 
     public void Shoot(InputAction.CallbackContext context)
     {
-        if ()
+        //if ()
         {
             if (canShoot)
             {

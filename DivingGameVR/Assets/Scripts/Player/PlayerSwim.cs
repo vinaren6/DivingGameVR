@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerSwim : MonoBehaviour
 {
     [SerializeField] private float swimForce;
+    [SerializeField] private float turnForce;
     [SerializeField] private float resistanceForce;
     [SerializeField] private float resistanceForceTurning;
     [SerializeField] private float stopOffset;
@@ -13,7 +14,6 @@ public class PlayerSwim : MonoBehaviour
     [SerializeField] private float turningDeadZone;
     [SerializeField] private Transform rightHandPosition;
     [SerializeField] private Transform leftHandPosition;
-    [SerializeField] private float interval;
     [SerializeField] private Transform trackingSpace;
     [SerializeField] private Vector3 direction;
     [SerializeField] private Transform startDirection;
@@ -174,6 +174,6 @@ public class PlayerSwim : MonoBehaviour
     private void AddRotateForce(Vector3 localVelocity)
     {
         Vector3 worldSpaceVelocity = trackingSpace.TransformDirection(localVelocity);
-        rigidbody.AddRelativeTorque(worldSpaceVelocity * swimForce * turnDirection);
+        rigidbody.AddRelativeTorque(worldSpaceVelocity * turnForce * turnDirection);
     }
 }

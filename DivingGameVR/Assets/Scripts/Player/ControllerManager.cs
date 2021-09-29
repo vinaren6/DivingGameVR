@@ -59,7 +59,7 @@ public class ControllerManager : MonoBehaviour
 
     private void Update()
     {
-        if (!rightController.isValid || !leftController.isValid)
+        if (!rightController.isValid)
         {
             Init();
         }
@@ -67,6 +67,14 @@ public class ControllerManager : MonoBehaviour
         {
             rightController.TryGetFeatureValue(CommonUsages.trigger, out float rTrigger);
             rightTrigger = rTrigger;
+        }
+
+        if (!leftController.isValid)
+        {
+            Init();
+        }
+        else
+        {
             leftController.TryGetFeatureValue(CommonUsages.trigger, out float lTrigger);
             leftTrigger = lTrigger;
         }

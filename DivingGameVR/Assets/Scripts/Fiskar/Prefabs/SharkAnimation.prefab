@@ -105,9 +105,10 @@ GameObject:
   - component: {fileID: 34509981519024363}
   - component: {fileID: 571996563559251313}
   - component: {fileID: 8127572070061663420}
-  m_Layer: 0
+  - component: {fileID: 4139808667556084960}
+  m_Layer: 7
   m_Name: SharkAnimation
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,6 +169,20 @@ MonoBehaviour:
   flockNumber: 0
   sizeVariationMax: 0.2
   sizeVaritaionMin: 0.4
+--- !u!136 &4139808667556084960
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806507213728631377}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.62
+  m_Height: 17.12
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -4.46}
 --- !u!1 &2245080732967366490
 GameObject:
   m_ObjectHideFlags: 0

@@ -111,7 +111,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6608194683217132723, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -5050498536276007450, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4875852398044224658, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4352969954961159655, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4258411891960909470, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -1866799366673099251, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1866799366673099251, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: -1578136035888261315, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 522668935869029026, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
         type: 3}
       propertyPath: m_Layer
       value: 7
@@ -121,11 +161,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clownfish Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145477847293401255, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7066830125578035303, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7145dcc028f1ce04cae0b0bb1b63355f, type: 2}
+    - target: {fileID: 7279290824562610024, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885966103819865423, guid: 04bbc4aee4adaff4a81e06f29743fc2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04bbc4aee4adaff4a81e06f29743fc2a, type: 3}
 --- !u!1 &43934952621953137 stripped

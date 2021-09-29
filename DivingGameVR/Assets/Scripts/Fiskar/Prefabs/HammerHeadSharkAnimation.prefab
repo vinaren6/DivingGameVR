@@ -506,9 +506,10 @@ GameObject:
   - component: {fileID: 6928783588289945142}
   - component: {fileID: 7470700525523663327}
   - component: {fileID: 919132147702575842}
-  m_Layer: 0
+  - component: {fileID: 1866689083866909903}
+  m_Layer: 7
   m_Name: HammerHeadSharkAnimation
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -570,6 +571,20 @@ MonoBehaviour:
   flockNumber: 0
   sizeVariationMax: 0.2
   sizeVaritaionMin: 0.6
+--- !u!136 &1866689083866909903
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740609525142799500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.4
+  m_Height: 16.27
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -4}
 --- !u!1 &9184317777641890183
 GameObject:
   m_ObjectHideFlags: 0

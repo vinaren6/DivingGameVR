@@ -32,10 +32,22 @@ public class HandGrabInteraction : MonoBehaviour
                 pickupObject = colliders[0].transform;
                 pickupRigidbody = pickupObject.GetComponent<Rigidbody>();
 
-                pickupRigidbody.isKinematic = true;
-                pickupObject.position = transform.position;
-                pickupObject.SetParent(transform);
-                lockedInHand = true;
+                Bomb bomb = pickupObject.GetComponent<Bomb>();
+                if (bomb != null)
+                {
+                    pickupObject.parent = null;
+                    pickupRigidbody.isKinematic = false;
+                    lockedInHand = false;
+                    bomb.Explode();
+                }
+                else
+                {
+                    pickupRigidbody.isKinematic = true;
+                    pickupObject.position = transform.position;
+                    pickupObject.SetParent(transform);
+                    lockedInHand = true;
+                }
+
             }
         }
         else if (lockedInHand && GetCorrectHandTriggerValue() < triggerPress)

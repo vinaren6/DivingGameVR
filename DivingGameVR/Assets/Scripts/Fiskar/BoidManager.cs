@@ -17,7 +17,7 @@ public class BoidManager : MonoBehaviour
     Boid[] boids;
 
     public Boid[] fishesPref;
-    public Boid sharkPref;
+    public Boid[] sharkPref;
     public Boid jellyPref;
     [Range(0, 1f)]
     public float percentageOfSharks;
@@ -66,7 +66,7 @@ public class BoidManager : MonoBehaviour
         for (int i = spawnCount; i < spawnCount + totalSharks; i++)
         {
             Vector3 poos = transform.position + Random.insideUnitSphere * spawnRadius;
-            Boid boid = Instantiate(sharkPref);
+            Boid boid = Instantiate(sharkPref[(int)Random.Range(0, sharkPref.Length)]);
             boid.transform.position = poos;
             boid.transform.forward = Random.insideUnitSphere;
             boid.transform.SetParent(transform);

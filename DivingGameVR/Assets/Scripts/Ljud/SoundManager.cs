@@ -10,6 +10,9 @@ public static class SoundManager
         ClickTwo,
         ClickThree,
         PlayerMove,
+        Bubblor,
+        ShootSound,
+        Kaboom,
     }
 
     private static GameObject playOneShotGameObj;
@@ -69,6 +72,7 @@ public static class SoundManager
         soundTimerDictionary = new Dictionary<Sound, float>();
         soundTimerDictionary[Sound.PlayerMove] = 0;
     }
+    static bool didfgrdsphj = true;
     private static bool CanPlaySound(Sound sound)
     {
         switch (sound)
@@ -80,7 +84,14 @@ public static class SoundManager
                     if (soundTimerDictionary.ContainsKey(sound))
                     {
                         float lastTimePlayed = soundTimerDictionary[sound];
-                        float playerMoveTimerMax = 0.3f;
+                        float playerMoveTimerMax = 10.7f;
+                        if(didfgrdsphj == true)
+                        {
+                            didfgrdsphj = false;
+                            soundTimerDictionary[sound] = Time.time;
+                            return true;
+                        }
+
                         if (lastTimePlayed + playerMoveTimerMax < Time.time)
                         {
                             soundTimerDictionary[sound] = Time.time;

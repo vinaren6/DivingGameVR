@@ -23,6 +23,7 @@ public class HandGrabInteraction : MonoBehaviour
 
     private void FixedUpdate()
     {
+        return;
         //If the correct hand is pressing
         if (!lockedInHand && GetCorrectHandTriggerValue() > triggerPress)
         {

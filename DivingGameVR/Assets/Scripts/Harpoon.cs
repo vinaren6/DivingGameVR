@@ -27,9 +27,9 @@ public class Harpoon : MonoBehaviour
 
         spear = GetComponentInChildren<Spear>();
         canShoot = true;
-        inputActions = new MouseClick();
-        inputActions.Player.Mouse.performed += Shoot;
-        inputActions.Player.Mouse.Enable();
+        //inputActions = new MouseClick();
+        //inputActions.Player.Mouse.performed += Shoot;
+        //inputActions.Player.Mouse.Enable();
 
 
         parent = transform.parent;

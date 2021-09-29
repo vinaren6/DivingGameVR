@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Animations;
 public class Boid : MonoBehaviour
 {
     public Material deadMaterial;
@@ -32,6 +32,14 @@ public class Boid : MonoBehaviour
     {
         savedTransform = gameObject.transform;
         savedTransform.localScale = Vector3.one * Random.Range(sizeVaritaionMin, sizeVariationMax);
+
+        //Animator animator = GetComponent<Animator>();
+        //if(animator != null)
+        //{
+        //    float randomStart = Random.Range(0, animator.GetCurrentAnimatorStateInfo(0).length);
+        //    var clip = animator.GetCurrentAnimatorClipInfo(0);
+        //    animator.Play(clip[0].clip, 0, randomStart);
+        //}
     }
 
     public void SetUpFish(BoidSettings settings, Transform target)

@@ -116,8 +116,11 @@ public class PlayerSwim : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        var temp = rightHandPosition;
+        temp.eulerAngles = new Vector3(temp.eulerAngles.x, temp.eulerAngles.y, temp.eulerAngles.z * 0);
+        
         Gizmos.color = Color.blue;
-        Gizmos.matrix = rightHandPosition.localToWorldMatrix;
+        Gizmos.matrix = temp.localToWorldMatrix;
         Gizmos.DrawLine(Vector3.zero, Vector3.left);
         Gizmos.color = Color.red;
         Gizmos.DrawLine(Vector3.zero, Vector3.right);

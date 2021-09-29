@@ -78,6 +78,9 @@ public class Spear : MonoBehaviour
                 animator.enabled = false;
         }
 
+        ScoreManager.Instance.AddScore();
+        ScoreManager.Instance.UpdateText();
+
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
     }

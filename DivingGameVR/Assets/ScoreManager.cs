@@ -28,6 +28,7 @@ public class ScoreManager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
+        PlayerPrefs.SetString("Highscore", score.ToString());
     }
 
     public void UpdateText()

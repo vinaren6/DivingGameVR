@@ -19,8 +19,13 @@ public class Harpoon : MonoBehaviour
 
     Transform parent;
 
+
+    //reset
+    Vector3 startPos;
+    Quaternion startRot;
     private void Awake()
     {
+        SaveStartPos();
         SoundManager.Initialize();
 
         spear = GetComponentInChildren<Spear>();
@@ -33,6 +38,19 @@ public class Harpoon : MonoBehaviour
         parent = transform.parent;
         line = GetComponent<LineRenderer>();
         line.positionCount = 2;
+    }
+
+    private void SaveStartPos()
+    {
+        startPos = transform.position;
+        startRot = transform.rotation;
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = startPos;
+        transform.rotation = startRot;
+        spear.DeactivateSpear();
     }
 
     private void Update()

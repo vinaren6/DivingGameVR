@@ -48,9 +48,6 @@ public class Harpoon : MonoBehaviour
 
     public void ResetPosition()
     {
-        Debug.Log(startPos + "|" + transform.position);
-        transform.position = startPos;
-        transform.rotation = startRot;
         spear.DeactivateSpear();
     }
 

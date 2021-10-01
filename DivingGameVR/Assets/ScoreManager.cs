@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
 
     private int score = 0;
     TextMeshPro[] texts;
+    public TextMeshPro[] extraTexts;
     private void Awake()
     {
         texts = GetComponentsInChildren<TextMeshPro>();
@@ -36,6 +37,10 @@ public class ScoreManager : MonoBehaviour
         foreach(TextMeshPro text in texts)
         {
             text.text = "Catches: " + score.ToString();
+        }
+        foreach(TextMeshPro t in extraTexts)
+        {
+            t.text = score.ToString();
         }
     }
 }

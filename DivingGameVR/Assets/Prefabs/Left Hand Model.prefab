@@ -596,7 +596,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightController: 0
   handAnimator: {fileID: 0}
-  interactionCenter: {fileID: 2396093866066819551}
 --- !u!114 &4005033335099398431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +611,7 @@ MonoBehaviour:
   pickupLayer:
     serializedVersion: 2
     m_Bits: 512
+  rightHand: 0
 --- !u!1 &5656498451457642211
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,7 +662,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3637b758ff163493f8bb8b6d7e96d7ae, type: 2}
+  - {fileID: 2100000, guid: c428e3fc840020d43851350a40508a5c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

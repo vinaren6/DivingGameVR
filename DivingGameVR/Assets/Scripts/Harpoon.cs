@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Harpoon : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class Harpoon : MonoBehaviour
     bool canShoot;
     // Start is called before the first frame update
 
-    MouseClick inputActions;
 
     LineRenderer line;
 
@@ -46,7 +44,7 @@ public class Harpoon : MonoBehaviour
         }
     }
 
-    public void Shoot(InputAction.CallbackContext context)
+    public void Shoot()
     {
         //if ()
         {

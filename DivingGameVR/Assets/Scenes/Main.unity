@@ -12406,8 +12406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605b02929a87bd242b8abcba329b386e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swimForce: 5
-  turnForce: 0.75
+  swimForce: 12
+  turnForce: 0.73
   resistanceForce: 0.01
   resistanceForceTurning: 0.0085
   stopOffset: 0.001

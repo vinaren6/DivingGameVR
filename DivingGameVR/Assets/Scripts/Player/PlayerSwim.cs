@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -18,6 +17,8 @@ public class PlayerSwim : MonoBehaviour
     [SerializeField] private Vector3 direction;
     [SerializeField] private Transform startDirection;
     [SerializeField] private float turnDirection = 1f;
+    [SerializeField] private bool rightGrabbing = false;
+    [SerializeField] private bool leftGrabbing = false;
 
     private float triggerPress = 0.9f;
     public float leftTrigger, rightTrigger;
@@ -47,7 +48,7 @@ public class PlayerSwim : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rightTrigger > triggerPress && leftTrigger > triggerPress)
+        if (rightTrigger > triggerPress && leftTrigger > triggerPress && rightGrabbing == false && leftGrabbing == false)
         {
             Vector3 rightHandDirection = leftVelocity.Velocity;
             Vector3 leftHandDirection = rightVelocity.Velocity;
@@ -61,7 +62,7 @@ public class PlayerSwim : MonoBehaviour
         }
         else
         {
-            if (rightTrigger > triggerPress && leftTrigger < triggerPress)
+            if (rightTrigger > triggerPress && (leftTrigger < triggerPress || leftGrabbing == true) && rightGrabbing == false)
             {
                 //Sets left point
                 startDirection.parent = rightHandPosition;
@@ -88,7 +89,7 @@ public class PlayerSwim : MonoBehaviour
                     AddRotateForce(new Vector3(0, fTemp, 0));
                 }
             }
-            else if (leftTrigger > triggerPress && rightTrigger < triggerPress)
+            else if (leftTrigger > triggerPress && (rightTrigger < triggerPress || rightGrabbing == true) && leftGrabbing == false)
             {
                 //Sets Right point
                 startDirection.parent = leftHandPosition;
@@ -147,6 +148,26 @@ public class PlayerSwim : MonoBehaviour
     }
 
     #endregion
+
+    public void RightGrabbing()
+    {
+        rightGrabbing = true;
+    }
+
+    public void RightNotGrabbing()
+    {
+        rightGrabbing = false;
+    }
+    
+    public void LeftGrabbing()
+    {
+        leftGrabbing = true;
+    }
+
+    public void LeftNotGrabbing()
+    {
+        leftGrabbing = false;
+    }
 
     private void ApplyReststanceTurning()
     {

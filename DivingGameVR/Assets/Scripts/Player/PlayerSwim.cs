@@ -1,8 +1,12 @@
+using System;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerSwim : MonoBehaviour
 {
+    [SerializeField] private Transform harpoon;
+    private Quaternion harpoonLock;
     [SerializeField] private float swimForce;
     [SerializeField] private float turnForce;
     [SerializeField] private float resistanceForce;
@@ -37,6 +41,11 @@ public class PlayerSwim : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        harpoonLock = harpoon.rotation;
+    }
+
     private void Update()
     {
         leftTrigger = ControllerManager.Instance.leftTrigger;
@@ -44,6 +53,9 @@ public class PlayerSwim : MonoBehaviour
 
         LEFT_DEBUG = leftVelocity.Velocity;
         RIGHT_DEBUG = rightVelocity.Velocity;
+
+        if (!rightGrabbing || !leftGrabbing)
+            LockHarpoon();
     }
 
     private void FixedUpdate()
@@ -57,8 +69,6 @@ public class PlayerSwim : MonoBehaviour
 
             if (localVelocity.sqrMagnitude > deadZone * deadZone)
                 AddSwimmingForce(localVelocity.normalized);
-
-            //rigidbody.angularVelocity = Vector3.zero;
         }
         else
         {
@@ -82,7 +92,7 @@ public class PlayerSwim : MonoBehaviour
                     turnDirection = -1;
                 else
                     turnDirection = 1;
-                
+
                 //Add turn force
                 if (fTemp > turningDeadZone)
                 {
@@ -109,7 +119,7 @@ public class PlayerSwim : MonoBehaviour
                     turnDirection = -1;
                 else
                     turnDirection = 1;
-                
+
                 //Add turn force
                 if (fTemp > turningDeadZone)
                 {
@@ -149,6 +159,11 @@ public class PlayerSwim : MonoBehaviour
 
     #endregion
 
+    private void LockHarpoon()
+    {
+        //harpoon.rotation = Quaternion.Euler(65, harpoonLock.eulerAngles.y, harpoonLock.eulerAngles.z);
+    }
+
     public void RightGrabbing()
     {
         rightGrabbing = true;
@@ -158,7 +173,7 @@ public class PlayerSwim : MonoBehaviour
     {
         rightGrabbing = false;
     }
-    
+
     public void LeftGrabbing()
     {
         leftGrabbing = true;

@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Harpoon : MonoBehaviour
 {
@@ -21,6 +20,7 @@ public class Harpoon : MonoBehaviour
 
 
     //reset
+    private bool whatTheFuck = false;
     Vector3 startPos;
     Quaternion startRot;
     private void Awake()
@@ -48,6 +48,7 @@ public class Harpoon : MonoBehaviour
 
     public void ResetPosition()
     {
+        Debug.Log(startPos + "|" + transform.position);
         transform.position = startPos;
         transform.rotation = startRot;
         spear.DeactivateSpear();

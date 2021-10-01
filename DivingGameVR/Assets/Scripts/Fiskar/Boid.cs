@@ -20,7 +20,7 @@ public class Boid : MonoBehaviour
     [HideInInspector]
     public Vector3 centerPosOfFlock;
 
-    //hur mÂnga kompissar
+    //hur m√•nga kompissar
     public int flockNumber;
 
     Transform savedTransform;
@@ -63,7 +63,7 @@ public class Boid : MonoBehaviour
             acc = SteerTorwards(targetOffset) * boidSettings.targetWeight;
         }
 
-        //St‰ller in sÂ att den g‰mnar ut stats med flocken
+        //St√§ller in s√• att den g√§mnar ut stats med flocken
         if(flockNumber != 0)
         {
             centerPosOfFlock = centerPosOfFlock / flockNumber;
@@ -99,7 +99,7 @@ public class Boid : MonoBehaviour
         velocity = dir * speed;
 
         savedTransform.position += velocity * Time.deltaTime;
-        //KAN G≈ ≈T SKOGEN
+        //KAN G√Ö √ÖT SKOGEN
         savedTransform.rotation = Quaternion.Slerp(savedTransform.rotation,
                     Quaternion.LookRotation(dir),
                     boidSettings.rotationSpeed * Time.deltaTime);
@@ -121,14 +121,14 @@ public class Boid : MonoBehaviour
 
     Vector3 ObstacleRays()
     {
-        //h‰mtar riktningar
+        //h√§mtar riktningar
         Vector3[] rayDirections = BoidHelper.directions;
         for (int i = 0; i < rayDirections.Length; i++)
         {
             Vector3 dir = savedTransform.TransformDirection(rayDirections[i]);
             Ray ray = new Ray(position, dir);
 
-            //kollar om det finns en v‰g att Âka
+            //kollar om det finns en v√§g att √•ka
             if(!Physics.SphereCast(ray, boidSettings.boundsRadius, boidSettings.collisionAvoidDist, boidSettings.obstacleMask))
             {
                 return dir;

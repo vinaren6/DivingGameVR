@@ -58,6 +58,7 @@ public class Spear : MonoBehaviour
 
         if (boid != null)
         {
+            Debug.Log(boid);
             Boid[] boids = BoidManager.Instance.GetBoids();
 
             var boidList = new List<Boid>(boids);
@@ -78,6 +79,7 @@ public class Spear : MonoBehaviour
                 animator.enabled = false;
         }
 
+        Destroy(fishTarget, 1f);
         ScoreManager.Instance.AddScore();
         ScoreManager.Instance.UpdateText();
 

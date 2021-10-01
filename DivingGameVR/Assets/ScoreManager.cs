@@ -10,6 +10,9 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance { get { return _instance; } }
 
     private int score = 0;
+
+    public int Score => score;
+
     TextMeshPro[] texts;
     public TextMeshPro[] extraTexts;
     private void Awake()
@@ -29,7 +32,7 @@ public class ScoreManager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
-        PlayerPrefs.SetString("Highscore", score.ToString());
+        PlayerPrefs.SetString("LastScore", score.ToString());
     }
 
     public void UpdateText()

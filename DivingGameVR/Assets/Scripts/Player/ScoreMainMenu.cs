@@ -1,20 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class ScoreMainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     void Start()
     {
-        string Highscore = PlayerPrefs.GetString("Highscore", "0");
+        string highscore = PlayerPrefs.GetString("Highscore", "0");
+        string lastScore = PlayerPrefs.GetString("LastScore", "0");
 
-        GetComponent<UnityEngine.UI.Text>().text = "Highscore: " + Highscore;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GetComponent<UnityEngine.UI.Text>().text = String.Format("Highscore: {0}\nLast score: {1}", highscore, lastScore);
     }
 }
